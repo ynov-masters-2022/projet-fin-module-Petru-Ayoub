@@ -1,9 +1,10 @@
 import Home from "./Vues/Home/Home";
-import Movie from "./Vues/Movie/Movie";
 import NoPage from "./Vues/NoPage/NoPage";
+import Comics from "./Vues/Comics/Comics";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
+import Heroes from "./Vues/Heroes/Heroes";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <h1>Header</h1>
         <Routes>
           <Route path={"/"} element={<Home />} />
-          <Route path={"/movie"} element={<Movie />} />
+          <Route path={"/heroes"} element={<Heroes />} />
+          <Route path={"/comics"} element={<Comics />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Router>
