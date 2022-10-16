@@ -1,16 +1,18 @@
 import Home from "./Vues/Home/Home";
 import NoPage from "./Vues/NoPage/NoPage";
 import Comics from "./Vues/Comics/Comics";
+import Heroes from "./Vues/Heroes/Heroes";
+import NavBar from "./Components/NavBar/NavBar";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import Heroes from "./Vues/Heroes/Heroes";
 
 function App() {
   return (
     <>
       <Router>
-        <h1>Header</h1>
+        <NavBar />
         <Routes>
           <Route path={"/"} element={<Home />} />
           <Route path={"/heroes"} element={<Heroes />} />

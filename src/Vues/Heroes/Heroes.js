@@ -1,4 +1,5 @@
 import React from "react";
+import { Loading } from "../../Components/Loading/Laoding";
 import { fetchData } from "../../Services/FetchData";
 
 export default function Heroes() {
@@ -18,7 +19,7 @@ export default function Heroes() {
         {heroes.length !== 0 ? (
           heroes.map((hero) => <li key={hero.id}> {hero.name}</li>)
         ) : (
-          <span>Loading...</span>
+          <Loading />
         )}
       </div>
     </>
