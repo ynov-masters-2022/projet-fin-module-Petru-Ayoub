@@ -7,6 +7,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
+import HeroDetails from "./Vues/HeroDetails/HeroDetails";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path={"/"} element={<Home />} />
           <Route path={"/heroes"} element={<Heroes />} />
           <Route path={"/comics"} element={<Comics />} />
+          <Route path={"/hero/:id"} element={<HeroDetails />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Router>

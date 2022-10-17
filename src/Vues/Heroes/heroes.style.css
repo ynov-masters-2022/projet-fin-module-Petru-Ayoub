@@ -5,10 +5,12 @@
 
 }
 .wrapper{
-    max-width: 70%;
+    width: 70%;
+    margin-top: 2rem;
+    
 }
 .listContainer {
-    margin-top: 4rem;
+    margin-top: 1rem;
     justify-content: center;
     justify-items: center;
     display: flex;

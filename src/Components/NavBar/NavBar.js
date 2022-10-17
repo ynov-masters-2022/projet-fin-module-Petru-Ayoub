@@ -17,7 +17,11 @@ export default function NavBar() {
               <HomeIcon style={{ color: "white", marginRight: "10px" }} />
             </IconButton>
           </Link>
-          <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            className="title"
+            variant="h3"
+            component="div"
+            sx={{ flexGrow: 1 }}>
             MARVEL
           </Typography>
         </Toolbar>
