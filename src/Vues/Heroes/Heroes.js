@@ -1,6 +1,8 @@
 import React from "react";
+import Card from "../../Components/Card/Card";
 import { Loading } from "../../Components/Loading/Laoding";
 import { fetchData } from "../../Services/FetchData";
+import "./heroes.style.css";
 
 export default function Heroes() {
   const [heroes, setHeroes] = React.useState([]);
@@ -14,14 +16,16 @@ export default function Heroes() {
     setHeroes([...heroes, ...response.data.results]);
   };
   return (
-    <>
-      <div className="body">
-        {heroes.length !== 0 ? (
-          heroes.map((hero) => <li key={hero.id}> {hero.name}</li>)
-        ) : (
-          <Loading />
-        )}
+    <div className="content">
+      <div className="wrapper">
+        <div className="listContainer fh">
+          {heroes.length !== 0 ? (
+            heroes.map((hero) => <Card key={hero.id} hero={hero} />)
+          ) : (
+            <Loading />
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

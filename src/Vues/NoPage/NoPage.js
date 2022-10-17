@@ -1,7 +1,8 @@
+import "./noPage.style.css";
 export default function NoPage() {
   return (
-    <>
-      <span> 404 | NOT FOUND</span>
-    </>
+    <div className="container">
+      <span className="text"> 404 | NOT FOUND</span>
+    </div>
   );
 }
