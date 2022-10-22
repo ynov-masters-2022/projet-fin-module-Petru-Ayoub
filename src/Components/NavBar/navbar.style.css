@@ -1,4 +1,9 @@
 .title{
     letter-spacing: -5px !important;
     font-weight: 800 !important;
+    background-color: rgb(160, 4, 4);
+    text-align: center;
+}
+.div-title {
+    width: 150px;
 }

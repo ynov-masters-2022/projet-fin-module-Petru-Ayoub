@@ -1,4 +1,4 @@
-//import "./navbar.style.css";
+import "./navbar.style.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,6 +8,7 @@ import * as React from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import SearchAppBar from "../SearckAppBar/SearchAppBar";
 //import {withRouter} from "react-router-dom";
 
 function NavBar() {
@@ -28,8 +29,8 @@ function NavBar() {
     setAnchorEl(event.currentTarget);
   };
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ backgroundColor: "red" }}>
+    <Box sx={{ flexGrow: 1, justifyContent: "space-around"}} >
+      <AppBar position="static" style={{ backgroundColor: "rgb(4, 4, 4)" }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -67,14 +68,17 @@ function NavBar() {
                   <MenuItem onClick={handleComics} >Comics</MenuItem>
                 
               </Menu>
-          
-          <Typography
+         <div className="div-title">
+                      <Typography
             className="title"
-            variant="h3"
+            variant="h4"
             component="div"
-            sx={{ flexGrow: 1 }}>
-            MARVEL
-          </Typography>
+            
+            sx={{ flexGrow: 1 }}>MARVEL</Typography>
+
+          </div>
+         
+          <SearchAppBar></SearchAppBar>
         </Toolbar>
       </AppBar>
     </Box>
