@@ -2,22 +2,17 @@ import md5 from "md5";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const fetchData = async (content, id) => {
+const directFetch = async (content) => {
     
-    let characterURL = `${BASE_URL}/${content}`;
-    console.log(content);
-    let contentId = "";
-    let content_2 ="";
-    contentId = typeof id !== 'undefined'  ? "/" + id : "";
+    let characterURL = `${content}`;
     
-
     //timestamp to generate a hash
     let ts = Date.now().toString();
     let privateKey = process.env.REACT_APP_PRIVATE_KEY;
     let publicKey = process.env.REACT_APP_PUBLIC_KEY;
     let hash = md5(ts + privateKey + publicKey);
 
-    let url = `${characterURL}${contentId}?limit=50&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+    let url = `${characterURL}?limit=50&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
   console.log("url : " + url);
 
@@ -31,4 +26,4 @@ const fetchData = async (content, id) => {
   }
 };
 
-export { fetchData };
+export { directFetch };
