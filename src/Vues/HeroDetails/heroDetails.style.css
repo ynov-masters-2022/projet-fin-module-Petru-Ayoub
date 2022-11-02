@@ -5,12 +5,13 @@
     grid-template-areas:
         'thumbnail title title title'
         'thumbnail description description description'
-        'comics comics comics comics';
+        'comics stories series series';
+    justify-content: center;
+    justify-items: stretch;
 }
 
 .detailsWrapper>* {
     border: solid 1px red;
-    margin: 0;
 }
 
 .portrait {
@@ -21,9 +22,7 @@
 
 .heroName {
     grid-area: title;
-    width: 100%;
     text-align: center;
-    font-size: xx-large;
     font-weight: bolder;
     text-transform: uppercase;
 
@@ -36,12 +35,22 @@
 
 .comicList {
     grid-area: comics;
-    padding: 0;
-    list-style: none;
+
+
+}
+.seriesList {
+    grid-area: series;
+
+
+}
+.storiesList {
+    grid-area: stories;
+
 
 }
 
-.comicList>* {
+.comicList>a {
+    margin-top: 5px;
     text-decoration: none;
     color: black;
 }
