@@ -18,6 +18,7 @@ function App() {
           <Route path={"/"} element={<Home />} />
           <Route path={"/heroes"} element={<Heroes />} />
           <Route path={"/comics"} element={<Comics />} />
+          <Route path={"/comic/:id"} element={<Comics />} />
           <Route path={"/hero/:id"} element={<HeroDetails />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
