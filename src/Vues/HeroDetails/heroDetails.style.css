@@ -1,10 +1,47 @@
+.detailsWrapper {
+    padding: 3rem;
+    gap: 2rem;
+    display: grid;
+    grid-template-areas:
+        'thumbnail title title title'
+        'thumbnail description description description'
+        'comics comics comics comics';
+}
 
+.detailsWrapper>* {
+    border: solid 1px red;
+    margin: 0;
+}
 
-img {
-    margin: auto;
-    display: block;
-    height: 200px;
-    width: 150px;
+.portrait {
+    width: fit-content;
+    height: fit-content;
+    grid-area: thumbnail;
+}
+
+.heroName {
+    grid-area: title;
+    width: 100%;
     text-align: center;
-    padding: 1rem;
+    font-size: xx-large;
+    font-weight: bolder;
+    text-transform: uppercase;
+
+}
+
+.heroDescription {
+    width: 100%;
+    grid-area: description;
+}
+
+.comicList {
+    grid-area: comics;
+    padding: 0;
+    list-style: none;
+
+}
+
+.comicList>* {
+    text-decoration: none;
+    color: black;
 }
