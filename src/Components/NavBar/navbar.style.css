@@ -3,7 +3,10 @@
     font-weight: 800 !important;
     background-color: rgb(160, 4, 4);
     text-align: center;
+    text-decoration: none !important;
+    
 }
 .div-title {
     width: 150px;
+    
 }
