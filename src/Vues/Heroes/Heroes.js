@@ -3,25 +3,29 @@ import Card from "../../Components/Card/Card";
 import { Loading } from "../../Components/Loading/Laoding";
 import { fetchData } from "../../Services/FetchData";
 import "./heroes.style.css";
-import { useLocation } from "react-router-dom";
+
 import { fetchDataFromSearch } from '../../Services/FetchDataFromSearch';
+import { useSearchParams } from "react-router-dom";
 
 export default function Heroes() {
   const [heroes, setHeroes] = React.useState([]);
   const [totalHeroCount, setTotalHeroCount] = React.useState(0);
-  const { state } = useLocation();
-  const { st } = state ?? '';
+  const [searchParams] = useSearchParams();
+  const st = searchParams.get("search");
 
+  //TODO: redo getData but better
   React.useEffect(() => {
-    const getData = async () => {
-      console.log("search term", st)
-      const response = !!st ? await fetchDataFromSearch(st) : await fetchData("characters");
-      console.log(response)
-      setHeroes([...heroes, ...response.data.results]);
+    const getData = async (offest = 0) => {
+      const response = !!st ? await fetchDataFromSearch(st) : await fetchData("characters", undefined, offest);
+      !!st ? setHeroes(response.data.results) : setHeroes([...heroes, ...response.data.results]);
       setTotalHeroCount(response.data.total);
     };
     getData();
   }, [st]);
+
+  // const onLoadNextHeroes = () => {
+  //     getData(heroes.length);
+  // };
 
 
   return (
@@ -38,6 +42,9 @@ export default function Heroes() {
             <Loading />
           )}
         </div>
+        {/* <button onClick={onLoadNextHeroes}>
+          Load more...
+        </button> */}
       </div>
     </div>
   );
