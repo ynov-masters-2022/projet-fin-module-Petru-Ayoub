@@ -68,13 +68,14 @@ function NavBar() {
                 
               </Menu>
          <div className="div-title">
+          <Link to='/' style={{ textDecoration: 'none', color: 'white' }} >
                       <Typography
             className="title"
             variant="h4"
             component="div"
             
-            sx={{ flexGrow: 1 }}><Link to='/' style={{ textDecoration: 'none', color: 'white' }} >MARVEL</Link></Typography>
-
+            sx={{ flexGrow: 1 }}>MARVEL</Typography>
+          </Link>
           </div>
          
           <SearchAppBar></SearchAppBar>
