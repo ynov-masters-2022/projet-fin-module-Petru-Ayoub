@@ -2,7 +2,7 @@ import md5 from "md5";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-const fetchData = async (content, id) => {
+const fetchData = async (content, id, offset) => {
 
   let characterURL = `${BASE_URL}/${content}`;
   let contentId = "";
@@ -15,7 +15,9 @@ const fetchData = async (content, id) => {
   let publicKey = process.env.REACT_APP_PUBLIC_KEY;
   let hash = md5(ts + privateKey + publicKey);
 
-  let url = `${characterURL}${contentId}?limit=50&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+  let url = `${characterURL}${contentId}?limit=50&offset=${offset}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+
+  console.log(url)
 
   try {
     let response = await fetch(url);

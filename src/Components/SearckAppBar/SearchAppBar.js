@@ -3,8 +3,7 @@ import { styled, alpha } from '@mui/material/styles';
 
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { useSearchParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -51,8 +50,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   const input = React.useRef("");
-  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+
+
 
   const handleKeyPress = (e) => {
     const st = input.current.value
@@ -60,8 +60,12 @@ export default function SearchAppBar() {
       if (st === " " || st === "") {
         window.location.reload(false);
       } else {
-        navigate("/heroes");
-        setSearchParams({ 'q': st })
+        navigate({
+          pathname: "heroes",
+          search: `?${createSearchParams({
+            search: st
+          })}`
+        });
       }
     }
   };
