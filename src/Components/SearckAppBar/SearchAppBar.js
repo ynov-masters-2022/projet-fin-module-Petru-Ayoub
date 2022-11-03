@@ -3,8 +3,9 @@ import { styled, alpha } from '@mui/material/styles';
 
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { fetchDataFromSearch } from '../../Services/FetchDataFromSearch';
-// import { useHistory } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -50,20 +51,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   const input = React.useRef("");
-  // let history = useHistory();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
-  //TODO: try to implement useNavigate to redirect to /heroes with st params
-  const handleKeyPress = async (e) => {
+  const handleKeyPress = (e) => {
+    const st = input.current.value
     if (e.key === "Enter") {
-      if (input.current.value.length === 0) {
+      if (st === " " || st === "") {
         window.location.reload(false);
       } else {
-        // history.push({
-        //   pathname: '/heroes/search',
-        //   state: { input }
-        // })
-        let data = await fetchDataFromSearch(input.current.value)
-        console.log(data)
+        navigate("/heroes");
+        setSearchParams({ 'q': st })
       }
     }
   };

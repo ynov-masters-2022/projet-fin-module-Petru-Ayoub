@@ -20,6 +20,7 @@ const fetchData = async (content, id) => {
   try {
     let response = await fetch(url);
     let result = await response.json();
+    console.log("fetch form data")
     return result;
   } catch (err) {
     console.error(err);

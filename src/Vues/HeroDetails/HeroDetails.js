@@ -3,6 +3,7 @@ import "./heroDetails.style.css"
 import { Link, useParams } from "react-router-dom";
 import { fetchData } from "../../Services/FetchData";
 
+
 const parameter = "portrait_incredible.";
 
 export default function HeroDetails() {
@@ -15,19 +16,18 @@ export default function HeroDetails() {
   const [image, setImage] = React.useState("");
 
   React.useEffect(() => {
+    const getHero = async () => {
+      const response = await fetchData("characters", id);
+      setHero(response.data.results[0]);
+      setImage(response.data.results[0].thumbnail.path + "/" + parameter + response.data.results[0].thumbnail.extension);
+      setComics(response.data.results[0].comics.items);
+      setSeries(response.data.results[0].series.items);
+      setStories(response.data.results[0].stories.items);
+    };
     getHero();
-  }, []);
+  }, [id]);
 
-  const getHero = async () => {
-    const response = await fetchData("characters", id);
-    setHero(response.data.results[0]);
-    setImage(response.data.results[0].thumbnail.path + "/" + parameter + response.data.results[0].thumbnail.extension);
-    setComics(response.data.results[0].comics.items);
-    setSeries(response.data.results[0].series.items);
-    setStories(response.data.results[0].stories.items);
 
-    console.log(!!series.length)
-  };
 
   return (
     <div className="detailsWrapper">
