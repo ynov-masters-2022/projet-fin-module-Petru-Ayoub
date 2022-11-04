@@ -1,4 +1,4 @@
-import "./navbar.style.css";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,20 +10,19 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchAppBar from "../SearckAppBar/SearchAppBar";
 //import {withRouter} from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./navbar.style.css";
 
 function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClose = () => {
     setAnchorEl(null);
-    window.location.href = '/';
   };
   const handleHeroes = () => {
     setAnchorEl(null);
-    window.location.href = '/heroes';
   };
   const handleComics = () => {
     setAnchorEl(null);
-    window.location.href = '/comics';
   };
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -59,23 +58,24 @@ function NavBar() {
                 onClose={handleClose}
               >
                 
-                  <MenuItem onClick={handleClose} >Home</MenuItem>
+                  <MenuItem onClick={handleClose} ><Link to='/' style={{ textDecoration: 'none', color: 'black' }}>Home</Link></MenuItem>
                 
                 
-                  <MenuItem onClick={handleHeroes} >Heros</MenuItem>
+                  <MenuItem onClick={handleHeroes} ><Link to='/heroes' style={{ textDecoration: 'none', color: 'black' }} >Heros</Link></MenuItem>
                 
                 
-                  <MenuItem onClick={handleComics} >Comics</MenuItem>
+                  <MenuItem onClick={handleComics} ><Link to='/comics' style={{ textDecoration: 'none', color: 'black' }} >Comics</Link></MenuItem>
                 
               </Menu>
          <div className="div-title">
+          <Link to='/' style={{ textDecoration: 'none', color: 'white' }} >
                       <Typography
             className="title"
             variant="h4"
             component="div"
             
             sx={{ flexGrow: 1 }}>MARVEL</Typography>
-
+          </Link>
           </div>
          
           <SearchAppBar></SearchAppBar>
