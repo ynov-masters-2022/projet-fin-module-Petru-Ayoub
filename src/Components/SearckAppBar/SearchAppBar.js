@@ -5,7 +5,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { createSearchParams, useNavigate } from "react-router-dom";
 
-
+//Ayoub
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -52,13 +52,12 @@ export default function SearchAppBar() {
   const input = React.useRef("");
   const navigate = useNavigate();
 
-
-
+  //Ayoub
   const handleKeyPress = (e) => {
     const st = input.current.value
     if (e.key === "Enter") {
       if (st === " " || st === "") {
-        window.location.reload(false);
+        window.location.reload(false); // prevent default
       } else {
         navigate({
           pathname: "heroes",

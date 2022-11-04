@@ -15,17 +15,19 @@ export default function Heroes() {
 
   //TODO: redo getData but better
   React.useEffect(() => {
-    const getData = async (offest = 0) => {
-      const response = !!st ? await fetchDataFromSearch(st) : await fetchData("characters", undefined, offest);
-      !!st ? setHeroes(response.data.results) : setHeroes([...heroes, ...response.data.results]);
+    const getData = async () => {
+      const response = !!st ? await fetchDataFromSearch(st) : await fetchData("characters");
+      setHeroes(response.data.results);
       setTotalHeroCount(response.data.total);
     };
     getData();
   }, [st]);
 
-  // const onLoadNextHeroes = () => {
-  //     getData(heroes.length);
-  // };
+  const onLoadNextHeroes = async () => {
+    const response = await fetchData("characters", undefined, heroes.length ?? 0);
+    setHeroes([...heroes, ...response.data.results]);
+    setTotalHeroCount(response.data.total);
+  };
 
 
   return (
@@ -42,10 +44,17 @@ export default function Heroes() {
             <Loading />
           )}
         </div>
-        {/* <button onClick={onLoadNextHeroes}>
-          Load more...
-        </button> */}
+        <span>
+          Loaded: {heroes.length !== 0 ? "1" : "0"} - {heroes.length} out of{" "}
+          {totalHeroCount}
+        </span>
+        <div className="center">
+          <button className="loadMoreButton" onClick={onLoadNextHeroes}>
+            Load more...
+          </button>
+        </div>
       </div>
+
     </div>
   );
 }

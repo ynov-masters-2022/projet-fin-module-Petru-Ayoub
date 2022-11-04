@@ -7,7 +7,7 @@
 .wrapper{
     width: 70%;
     margin-top: 2rem;
-    
+
 }
 .listContainer {
     margin-top: 1rem;
@@ -19,4 +19,30 @@
     gap: 4rem;
     flex-grow: 4;
 
+}
+
+.loadMoreButton {
+  background-color: #eb4444;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.center {
+  margin-top: 3rem;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.loadMoreButton:hover {
+  background-color: #e22323;
+  transition: 0.2s;
 }
