@@ -56,7 +56,7 @@ export default function SearchAppBar() {
   const handleKeyPress = (e) => {
     const st = input.current.value
     if (e.key === "Enter") {
-      if (st === " " || st === "") {
+      if (st.length < 1) {
         window.location.reload(false); // prevent default
       } else {
         navigate({

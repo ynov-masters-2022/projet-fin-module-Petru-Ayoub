@@ -12,19 +12,17 @@ import ComicDetails from "./Vues/ComicDetails/ComicDetails";
 
 function App() {
   return (
-    <>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path={"/"} element={<Home />} />
-          <Route path={"/heroes"} element={<Heroes />} />
-          <Route path={"/comics"} element={<Comics />} />
-          <Route path={"/comic/:id"} element={<ComicDetails />} />
-          <Route path={"/hero/:id"} element={<HeroDetails />} />
-          <Route path="*" element={<NoPage />} />
-        </Routes>
-      </Router>
-    </>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/heroes"} element={<Heroes />} />
+        <Route path={"/comics"} element={<Comics />} />
+        <Route path={"/comic/:id"} element={<ComicDetails />} />
+        <Route path={"/hero/:id"} element={<HeroDetails />} />
+        <Route path="*" element={<NoPage />} />
+      </Routes>
+    </Router>
   );
 }
 

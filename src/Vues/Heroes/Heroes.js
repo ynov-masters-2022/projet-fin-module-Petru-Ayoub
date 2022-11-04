@@ -49,12 +49,17 @@ export default function Heroes() {
           {totalHeroCount}
         </span>
         <div className="center">
-          <button className="loadMoreButton" onClick={onLoadNextHeroes}>
-            Load more...
-          </button>
+          {(() => {
+            if (heroes.length > 0 && heroes.length < totalHeroCount) {
+              return (
+                <button className="loadMoreButton" onClick={onLoadNextHeroes}>
+                  Load more...
+                </button>
+              )
+            }
+          })()}
         </div>
       </div>
-
     </div>
   );
 }
