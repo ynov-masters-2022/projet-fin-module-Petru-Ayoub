@@ -1,8 +1,7 @@
-# Getting Started with Create React App
-
+# React Demo Project
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Running The Application
 
 In the project directory, you can run:
 
@@ -14,57 +13,43 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+#### This application is using the [Marvel Api](https://developer.marvel.com/)
+The public and private API keys are to be stored in an .env file situated at the root of the project folowing the template:
+`REACT_APP_BASE_URL=https://gateway.marvel.com:443/v1/public`
+`REACT_APP_PRIVATE_KEY=Your_Private_Key`
+`REACT_APP_PUBLIC_KEY=Your_Public_Key`
+> **Data provided by Marvel. © 2014 [Marvel](http://marvel.com)** 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#
 
-### `npm run build`
+## Concepts
+This is an introduction to a basic React App, featuring some basic React concepts.
+### Project Structure
+The project contains 3 main sections:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ - Views
+ - Components
+ - Services
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The views are the pages displayed in the browser, the components are reusable HTML 'templates' that can be called in any page and the services, in this case, are the API calls which return data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![img](https://i.imgur.com/aKHiVGw.png)
 
-### `npm run eject`
+## Routing
+Routing is managed by the react-router-dom lib.
+The the routes are defined in app.js
+![enter image description here](https://i.imgur.com/cT7jagz.png) 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Here, we have 3 main routes: the homepage (default route), heroes and comics which display a view showcasing a list of heroes and comics respectively.
+We can also find routes params, notably hero/:id and comics/:id, where :id is a variable  containing the unique ID of an hero or comic. This routes return a details page for any given hero / comic. 
+The ID is specified via a the `<Link>` tag. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![](https://imgur.com/GGkAVDa.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This ID is then retrived from the details view using the `useParams()` hook.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![enter image description here](https://imgur.com/tiKhANV.png)
 
-## Learn More
+We can then fetch the details using this ID.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The wildcard (*) route returns a "Not found" page if the specified route is not one of the availble routes.
