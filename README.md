@@ -44,9 +44,13 @@ The the routes are defined in app.js
 
 Here, we have 3 main routes: the homepage (default route), heroes and comics which display a view showcasing a list of heroes and comics respectively.
 We can also find routes params, notably hero/:id and comics/:id, where :id is a variable  containing the unique ID of an hero or comic. This routes return a details page for any given hero / comic. 
+
 The ID is specified via a the `<Link>` tag. ![](https://imgur.com/GGkAVDa.png)
+
 This ID is then retrived from the details view using the `useParams()` hook
+
 ![enter image description here](https://imgur.com/tiKhANV.png)
+
 we can then fetch the details using this ID.
 
 The search feature redirects the user to the heroes list and returns all the heroes that match thier search term. 
