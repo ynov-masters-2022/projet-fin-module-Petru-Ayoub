@@ -79,3 +79,11 @@ Using the useEffect hook, we can asynchronously fetch data form the Marvel API o
 
 ![enter image description here](https://imgur.com/UPgPtAr.png)
 We can also fetch data for rearched heroes by calling the API inside the useEffect and setting the search term as the dependency. Every time the search term (and in term the list of fetched heroes) changes, the hero list component is re-rendered.
+
+## Static Site Generation with NextJS
+
+Unlike CSR,  wih SSG, all pages are pre-rendered at build time which means faster webpage load times.
+
+Each page implements the `getStaticProps()` function to fetch data and pass the data as props to the component.
+
+![enter image description here](https://imgur.com/iVP0Sde.png)
