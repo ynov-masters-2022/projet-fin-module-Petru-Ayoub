@@ -87,3 +87,17 @@ Unlike CSR,  wih SSG, all pages are pre-rendered at build time which means faste
 Each page implements the `getStaticProps()` function to fetch data and pass the data as props to the component.
 
 ![enter image description here](https://imgur.com/iVP0Sde.png)
+
+Each js file in the 'Pages' direcory represents a route in the application. 
+The file structure mirrors the accessibile URLs that the user can navigate to. 
+
+To render all the components of a dynamic URL, we use the `getStaticProps` function.
+
+![enter image description here](https://imgur.com/JSG01Km.png)
+
+We can then generete a details page for each hero fetched. 
+
+### Limitations 
+SSG is not really suited for this application due to the fact that Marvel API returns only a maximin of 200 elements at a time. this means that is really difficult to pre fetch and render all the components for all the different endpoints.
+
+The best we can do, is to fetch and pre render an initial list of heroes to be displayed, but then when the user wants to load more heroes or initiates a search, the rendering takes places on the client side.  
